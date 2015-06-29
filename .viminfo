@@ -1,0 +1,981 @@
+# この viminfo ファイルは Vim 7.4 によって生成されました.
+# 変更する際には十分注意してください!
+
+# このファイルが書かれた時の 'encoding' の値
+*encoding=utf-8
+
+
+# hlsearch on (H) or off (h):
+~h
+# 最後の 検索パターン:
+~MSle0~/noh
+
+# 最後の Substitute 検索パターン:
+~MSle0&molokai_original = 1
+
+# 最後に置換された文字列:
+$
+
+# コマンドライン 項目の履歴 (新しいものから古いものへ):
+:q
+:w
+:colorscheme molokai
+:colorscheme molokai2
+:q!
+:wq
+:.q!
+:Gtags -g vm_stop
+:s
+:resize +5
+:NeoBundleInstall
+:registers
+:register
+::w
+:iretq
+:Gtags -g native_irq_return_iret
+:Gtags -g native_irq
+:Gtags -g do_notify_resume
+:Gt
+:Gtags -g
+:Q!
+:Q
+:Gtags -g s
+:Gtags -g aaaa
+:'<,'>Gtags -g s
+:NERDTreeToggle
+:bdelete
+:Gtags 
+:Gtags -g do_signal
+:Gtags -g signal.c
+:Gtags -g signal
+:Gtags signal.c
+:noh
+:molokai_original
+:Gtags -g sigreturn
+:Gtags -g setup_rt_frame
+:Gtags -g saffron_call
+:Gtags -g saffron
+:e test.html
+:cd ~/program/htmltest/
+:.,.+5!
+:e! test.html
+:cd program/htmltest/
+:cd htmltest/
+:cd ~/program/
+:tabnew helper.c
+:noj
+:tabnew
+:e op_helper.c
+:cd target-i386/
+
+# 検索文字列 項目の履歴 (新しいものから古いものへ):
+?/noh
+?/saffron_ret
+?/oh
+?/debug_flag
+?/helper_saffron_ret
+?/vm_stop
+?/compare_stack
+?/compare_call
+?/saffron_call
+?/unwind-dw2.c
+?/visual
+?/iretq
+?/native_irq_return
+?/irq
+?/entry
+?/x86
+?/target
+?/0x10b
+?/lgdt
+?/i386
+?/target-i38
+?/target-i386
+?/user
+?/TAR
+?/HLT
+?/LGDT
+?/normal
+? @$
+?/ctermbg
+?/shibata
+?/setup_rt_frame
+?/setup_frame
+?/handle_signal
+?/do_signal
+?/signal.c
+?/SA_SIGINFO
+?/handle_sig
+?/assert
+?/ret
+? ^" \a
+?/DocumentRoot
+?/Documentroot
+
+# 式 項目の履歴 (新しいものから古いものへ):
+
+# 入力行 項目の履歴 (新しいものから古いものへ):
+@/Users/kojiMac/Desktop/Laboratory/SAF
+
+# 入力行 項目の履歴 (新しいものから古いものへ):
+
+# レジスタ:
+"0	CHAR	0
+	getBoundingClientRect().
+"1	LINE	0
+	  </head>
+"2	LINE	0
+	    <meta charset="utf-8">
+"3	LINE	0
+	  <script src="test.js"></script>
+"4	CHAR	0
+	helper_saffron_ret(int pe,
+	                       int instr_eip,
+	                       target_ulong ret_addr,
+	                       int data32)
+	{
+	    struct protected_stack *p;
+	    int error_num = 0;
+	
+	#ifdef PASS_THROUGH
+	    return;
+	#endif
+	
+	    /* ret: CPLでフィルターをかける */
+	    if ((env->hflags & HF_CPL_MASK) != 3)
+	        return;
+	    if (unlikely(!pe))
+	        return;
+	
+	    /* ret: ハッシュテーブルから探す */
+	    p = find_proc(env->id_regs[1], env->id_regs[0]);
+	    assert(p && "Protected stack is NULL");
+	
+	    if (p->debug_flag)
+	        return;
+	
+	    if (check_stack_under_flow(p))
+	        return;
+	
+	    logger(info, "---begin ret---\n");
+	    logger(info, "compare stack: [" TARGET_FMT_lx ", "
+	           TARGET_FMT_lx "] sp: %d\n",
+	           p->pid, p->tid, p->stack_pointer);
+	
+	    error_num = compare_stack(p, ret_addr, ESP);
+	    if (error_num < 0) {
+	        logger(fatal, "error num = %d\n", error_num);
+	        logger(fatal, "Inconsistent data was found, guest ra = " TARGET_FMT_lx
+	               ", guest sp = " TARGET_FMT_lx "\n",
+	                ret_addr, ESP);
+	
+	        p->debug_flag = 1;
+	        vm_stop(0);
+	        /* 不一致の場合に例外を上げる */
+	        /* raise_exception(EXCP0D_GPF); */
+	    }
+	    logger(info, "---end ret---\n");
+	}
+	
+	void helper_saffron_fin_thread(int pe)
+	{
+"5	LINE	0
+	
+"6	LINE	0
+	    <link rel="stylesheet" type="text/css" href="test.css">
+"7	LINE	0
+	
+"8	LINE	0
+	    <script src="test.js"></script>
+"9	LINE	0
+	
+"j	CHAR	0
+	jjk;
+"w	CHAR	0
+	
+""-	CHAR	0
+	background
+
+# ファイルマーク:
+'0  23  0  ~/.vimrc
+'1  107  0  ~/.vim/colors/molokai.vim
+'2  44  21  ~/.vimrc
+'3  14  18  ~/.vimrc
+'4  12  30  ~/.tmux.conf
+'5  238  5  ~/.vim/colors/molokai2.vim
+'6  276  5  ~/.vim/colors/molokai2.vim
+'7  3  0  /usr/share/vim/vim73/colors/darkblue.vim
+'8  36  0  ~/.vim/colors/molokai.vim
+'9  1  0  ~/.bashrc
+
+# ジャンプリスト (新しいものが先):
+-'  23  0  ~/.vimrc
+-'  16  0  ~/.vimrc
+-'  107  0  ~/.vim/colors/molokai.vim
+-'  36  0  ~/.vim/colors/molokai.vim
+-'  44  21  ~/.vimrc
+-'  14  18  ~/.vimrc
+-'  12  30  ~/.tmux.conf
+-'  238  5  ~/.vim/colors/molokai2.vim
+-'  276  5  ~/.vim/colors/molokai2.vim
+-'  11  0  ~/.vim/colors/molokai2.vim
+-'  1  0  ~/.vim/colors/molokai2.vim
+-'  3  0  /usr/share/vim/vim73/colors/darkblue.vim
+-'  6  0  ~/NERD_tree_1
+-'  1  0  ~/NERD_tree_1
+-'  22  2  ~/NERD_tree_1
+-'  20  0  ~/.vim/colors/molokai.vim
+-'  1  0  ~/.vimrc
+-'  1  0  ~/.bashrc
+-'  8  0  ~/.bashrc
+-'  52  0  ~/.vimrc
+-'  10  0  ~/.tmux.conf
+-'  205  42  ~/.vim/colors/molokai.vim
+-'  207  3  ~/.vim/colors/molokai.vim
+-'  15  0  ~/.vimrc
+-'  33  0  ~/.vimrc
+-'  260  0  ~/Desktop/Laboratory/SAFFRON/buildroot-2014.08/Makefile
+-'  1  0  ~/Desktop/Laboratory/SAFFRON/buildroot-2014.08/Makefile
+-'  335  0  ~/Desktop/Laboratory/SAFFRON/buildroot-2014.08/package/gcc/4.5.4/830-arm-pr43440.patch
+-'  1  0  ~/Desktop/Laboratory/SAFFRON/buildroot-2014.08/package/gcc/4.5.4/830-arm-pr43440.patch
+-'  1  0  ~/Desktop/Laboratory/SAFFRON/buildroot-2014.08/package/gcc/4.5.4/100-uclibc-conf.patch
+-'  23  0  ~/Desktop/Laboratory/SAFFRON/buildroot-2014.08/package/gcc/gcc-initial/gcc-initial.mk
+-'  1  0  ~/Desktop/Laboratory/SAFFRON/buildroot-2014.08/package/gcc/gcc-initial/gcc-initial.mk
+-'  1  0  ~/.tmux.conf
+-'  1  0  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/.tmux.conf
+-'  12  56  ~/program/htmltest/test.html
+-'  2  0  ~/program/htmltest/test.js
+-'  1  0  ~/program/htmltest/test.js
+-'  11  31  ~/program/htmltest/test.html
+-'  17  0  ~/program/htmltest/test.html
+-'  4  0  ~/program/htmltest/test.html
+-'  16  0  ~/program/htmltest/test.html
+-'  7  19  ~/program/htmltest/test.html
+-'  3  0  ~/program/htmltest/test.html
+-'  14  6  ~/program/htmltest/test.html
+-'  6  5  ~/program/htmltest/test.html
+-'  5  7  ~/program/htmltest/test.html
+-'  1  0  ~/program/htmltest/test.html
+-'  53  9  ~/.vimrc
+-'  51  6  ~/.vimrc
+-'  46  0  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/target-i386/op_helper.c
+-'  1  0  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/target-i386/op_helper.c
+-'  6345  12  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/target-i386/op_helper.c
+-'  70  0  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/target-i386/op_helper.c
+-'  37  0  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/target-i386/op_helper.c
+-'  41  0  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/target-i386/op_helper.c
+-'  15  0  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/target-i386/NERD_tree_1
+-'  1  0  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/target-i386/NERD_tree_1
+-'  20  2  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/target-i386/NERD_tree_1
+-'  31  2  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/target-i386/NERD_tree_1
+-'  36  2  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/target-i386/NERD_tree_1
+-'  749  2  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/NERD_tree_1
+-'  1  0  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/NERD_tree_1
+-'  1040  2  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/NERD_tree_1
+-'  53  0  ~/Desktop/Web4_original/js/main.js
+-'  76  33  ~/Desktop/Web4_original/js/main.js
+-'  1  0  ~/Desktop/Web4_original/js/main.js
+-'  29  2  ~/NERD_tree_1
+-'  26  0  /Volumes/CREATE_C/2015春スクール/回収用/20150613pm/チバショウタ/Web3_original/index.html
+-'  21  1  ~/program/htmltest/NERD_tree_1
+-'  29  0  ~/program/htmltest/NERD_tree_1
+-'  1  0  ~/program/htmltest/NERD_tree_1
+-'  8  13  ~/program/htmltest/test.css
+-'  1  0  ~/program/htmltest/test.css
+-'  9  0  ~/Desktop/Laboratory/SAFFRON/test/exception.cpp
+-'  13  0  ~/Desktop/Laboratory/SAFFRON/test/exception.cpp
+-'  1  0  ~/Desktop/Laboratory/SAFFRON/test/exception.cpp
+-'  5  16  ~/.bash_profile
+-'  1  0  ~/.bash_profile
+-'  41  6  ~/.vimrc
+-'  1  9  ~/Desktop/a
+-'  40  12  ~/.vimrc
+-'  42  0  ~/.vimrc
+-'  1  0  ~/Desktop/.vimrc
+-'  11  2  ~/Desktop/c++test.cpp
+-'  14  19  ~/Desktop/c++test.cpp
+-'  15  0  ~/program/htmltest/test.html
+-'  46  0  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/target-i386/op_helper.c
+-'  1  0  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/target-i386/op_helper.c
+-'  6345  12  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/target-i386/op_helper.c
+-'  70  0  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/target-i386/op_helper.c
+-'  37  0  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/target-i386/op_helper.c
+-'  41  0  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/target-i386/op_helper.c
+-'  15  0  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/target-i386/NERD_tree_1
+-'  1  0  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/target-i386/NERD_tree_1
+-'  20  2  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/target-i386/NERD_tree_1
+-'  31  2  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/target-i386/NERD_tree_1
+-'  36  2  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/target-i386/NERD_tree_1
+-'  749  2  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/NERD_tree_1
+-'  1  0  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/NERD_tree_1
+-'  1040  2  ~/Desktop/Laboratory/SAFFRON/qemu-saffron/NERD_tree_1
+
+# ファイル内マークの履歴 (新しいものから古いもの):
+
+> ~/.vimrc
+	"	23	0
+	^	14	20
+	.	14	18
+	+	4	8
+	+	4	9
+	+	4	0
+	+	13	15
+	+	12	13
+	+	11	16
+	+	60	0
+	+	43	15
+	+	51	29
+	+	43	0
+	+	45	0
+	+	50	0
+	+	50	0
+	+	51	0
+	+	46	21
+	+	50	0
+	+	50	0
+	+	47	0
+	+	47	0
+	+	48	19
+	+	47	0
+	+	51	0
+	+	60	0
+	+	56	40
+	+	51	0
+	+	60	0
+	+	60	0
+	+	58	25
+	+	60	0
+	+	57	0
+	+	32	17
+	+	18	18
+	+	24	3
+	+	18	17
+	+	42	3
+	+	24	16
+	+	44	0
+	+	17	20
+	+	13	16
+	+	17	0
+	+	14	21
+	+	14	19
+	+	17	0
+	+	17	21
+	+	14	18
+	+	17	3
+	+	14	18
+	+	17	0
+	+	15	24
+	+	17	0
+	+	15	25
+	+	14	0
+	+	15	23
+	+	17	0
+	+	15	19
+	+	15	0
+	+	15	20
+	+	15	0
+	+	15	0
+	+	17	0
+	+	16	0
+	+	54	30
+	+	10	0
+	+	40	0
+	+	40	0
+	+	13	0
+	+	41	0
+	+	33	0
+	+	20	33
+	+	21	50
+	+	24	0
+	+	21	13
+	+	26	25
+	+	24	0
+	+	23	11
+	+	24	18
+	+	25	19
+	+	27	0
+	+	29	19
+	+	31	1
+	+	27	37
+	+	59	0
+	+	33	0
+	+	33	0
+	+	35	8
+	+	38	32
+	+	39	0
+	+	42	25
+	+	16	0
+	+	42	0
+	+	51	0
+	+	41	6
+	+	53	0
+	+	33	0
+	+	15	0
+	+	14	19
+	+	15	0
+	+	15	0
+	+	14	18
+	j	16	0
+
+> ~/.vim/colors/molokai.vim
+	"	107	0
+	^	213	6
+	.	213	5
+	+	204	44
+	+	208	87
+	+	204	44
+	+	208	45
+	+	208	0
+	+	204	44
+	+	209	44
+	+	204	44
+	+	210	0
+	+	199	44
+	+	200	44
+	+	11	0
+	+	10	0
+	+	12	0
+	+	212	0
+	+	213	0
+	+	12	0
+	+	12	0
+	+	213	5
+
+> ~/.tmux.conf
+	"	12	30
+	^	12	31
+	.	12	30
+	+	5	21
+	+	1	0
+	+	7	9
+	+	12	0
+	+	7	3
+	+	12	30
+
+> ~/.vim/colors/molokai2.vim
+	"	238	5
+	^	276	6
+	.	277	0
+	+	277	0
+
+> ~/NERD_tree_1
+	"	6	0
+	.	1	0
+	+	1	0
+	+	1	0
+
+> /usr/share/vim/vim73/colors/darkblue.vim
+	"	3	0
+
+> ~/.bashrc
+	"	1	0
+	^	8	18
+	.	6	0
+	+	8	18
+	+	6	0
+
+> ~/program/htmltest/test.html
+	"	11	62
+	.	12	0
+	+	1	34
+	+	1	0
+	+	1	26
+	+	1	19
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	15	0
+	+	11	62
+	+	12	10
+	+	11	32
+	+	12	0
+	+	12	0
+
+> ~/program/htmltest/NERD_tree_1
+	"	10	1
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/program/htmltest/test.css
+	"	8	0
+	^	4	14
+	.	4	14
+	+	8	0
+	+	14	0
+	+	2	21
+	+	5	0
+	+	7	13
+	+	2	0
+	+	5	21
+	+	3	15
+	+	4	14
+
+> ~/Desktop/Laboratory/SAFFRON/buildroot-2014.08/Makefile
+	"	260	0
+
+> ~/Desktop/Laboratory/SAFFRON/buildroot-2014.08/boot/at91bootstrap/at91bootstrap.mk
+	"	1	0
+
+> ~/Desktop/Laboratory/SAFFRON/buildroot-2014.08/package/gcc/4.5.4/830-arm-pr43440.patch
+	"	335	0
+
+> ~/Desktop/Laboratory/SAFFRON/buildroot-2014.08/package/gcc/4.5.4/100-uclibc-conf.patch
+	"	1	0
+
+> ~/Desktop/Laboratory/SAFFRON/buildroot-2014.08/package/gcc/gcc-initial/gcc-initial.mk
+	"	23	0
+
+> ~/Desktop/Laboratory/SAFFRON/buildroot-2014.08/package/gcc/4.4.7/100-uclibc-conf.patch
+	"	1	0
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/.tmux.conf
+	"	1	0
+
+> ~/program/htmltest/test.js
+	"	2	0
+	^	1	60
+	.	1	59
+	+	1	69
+	+	2	0
+	+	1	59
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/target-i386/op_helper.c
+	"	6407	16
+	^	6503	0
+	.	6434	0
+	+	6401	0
+	+	6434	0
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/NERD_tree_1
+	"	41	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/main-loop.c
+	"	379	8
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/qemu-option.c
+	"	813	8
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/roms/ipxe/src/util/efirom.c
+	"	141	1
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/roms/ipxe/src/util/elf2efi.c
+	"	723	1
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/target-i386/translate.c
+	"	98	4
+	^	7134	83
+	.	7312	0
+	+	7417	0
+	+	7134	63
+	+	7135	0
+	+	7134	83
+	+	7134	0
+	+	7312	30
+	+	7312	0
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/cpus.c
+	"	393	0
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/gdbstub.c
+	"	2858	8
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/hw/ide/core.c
+	"	531	8
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/hw/scsi-disk.c
+	"	247	8
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/hw/virtio-blk.c
+	"	81	8
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/hw/watchdog.c
+	"	135	8
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/kvm-all.c
+	"	1028	8
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/migration.c
+	"	268	8
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/monitor.c
+	"	2563	4
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/qmp.c
+	"	81	4
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/savevm.c
+	"	1986	4
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/sysemu.h
+	"	39	0
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/vl.c
+	"	1464	8
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/audio/audio.c
+	"	1746	43
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/target-i386/NERD_tree_1
+	"	1	0
+	.	1	0
+	+	1	0
+	+	1	0
+
+> ~/Desktop/Laboratory/SAFFRON/buildroot-2014.08/package/gcc/4.9.1/900-musl-support.patch
+	"	25	0
+
+> ~/Desktop/Web4_original/js/main.js
+	"	53	0
+	^	76	98
+	.	76	97
+	+	76	97
+
+> /Volumes/CREATE_C/2015春スクール/回収用/20150613pm/チバショウタ/Web3_original/index.html
+	"	26	0
+
+> /Volumes/CREATE_C/2015春スクール/回収用/20150613pm/チバショウタ/Web3_original/index2.html
+	"	1	0
+
+> /Volumes/CREATE_C/2015春スクール/回収用/20150606pm/チバショウタ/Web3_original/index.html
+	"	1	0
+
+> /Volumes/CREATE_C/2015春スクール/回収用/20150606pm/チバショウタ/Web3_original/js/main.js
+	"	1	0
+
+> /Volumes/CREATE_C/2015春スクール/回収用/20150613pm/チバショウタ/Web3_original/js/main.js
+	"	1	0
+
+> ~/Desktop/CyberAgent/春スクール/web/Lv.2/2/4_初期ファイル/信号ゲーム/js/main.js
+	"	1	0
+
+> ~/Desktop/CyberAgent/春スクール/web/Lv.2/2/4_初期ファイル/信号ゲーム/index.html
+	"	1	0
+
+> ~/Desktop/Laboratory/SAFFRON/test/exception.cpp
+	"	9	0
+
+> ~/.bash_profile
+	"	5	16
+	^	7	18
+	.	7	18
+	+	7	18
+
+> ~/Desktop/a
+	"	1	9
+	^	1	10
+	.	1	9
+	+	1	9
+
+> ~/Desktop/.vimrc
+	"	1	0
+
+> ~/Desktop/c++test.cpp
+	"	11	2
+	^	11	6
+	.	11	0
+	+	19	1
+	+	6	13
+	+	3	0
+	+	6	0
+	+	5	0
+	+	6	0
+	+	19	24
+	+	4	38
+	+	19	0
+	+	7	2
+	+	2	16
+	+	7	0
+	+	2	9
+	+	7	2
+	+	1	18
+	+	2	17
+	+	1	17
+	+	2	16
+	+	19	0
+	+	7	14
+	+	19	0
+	+	7	0
+	+	19	0
+	+	8	16
+	+	19	0
+	+	11	0
+	+	4	48
+	+	10	30
+	+	19	24
+	+	14	9
+	+	19	0
+	+	19	0
+	+	19	0
+	+	19	0
+	+	19	0
+	+	19	0
+	+	19	0
+	+	19	0
+	+	19	0
+	+	19	0
+	+	14	0
+	+	19	0
+	+	18	2
+	+	17	2
+	+	16	30
+	+	17	0
+	+	13	9
+	+	14	17
+	+	15	16
+	+	12	14
+	+	15	0
+	+	16	0
+	+	15	0
+	+	14	0
+	+	15	0
+	+	15	0
+	+	14	0
+	+	11	0
+
+> ~/Desktop/c++yomikomi.txt
+	"	1	9
+	^	1	10
+	.	1	9
+	+	1	9
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/.git/config
+	"	4	0
+
+> ~/.git
+	"	1	0
+
+> ~/Desktop/Laboratory/SAFFRON/linux-saffron/NERD_tree_1
+	"	1	0
+	.	1	0
+	+	1	0
+	+	1	0
+
+> ~/Desktop/Laboratory/SAFFRON/linux-saffron/arch/x86/ia32/ia32entry.S
+	"	76	1
+
+> ~/Desktop/Laboratory/SAFFRON/linux-saffron/arch/x86/include/asm/irqflags.h
+	"	118	2
+
+> ~/Desktop/Laboratory/SAFFRON/linux-saffron/arch/x86/kernel/entry_32.S
+	"	23	0
+
+> ~/Desktop/Laboratory/SAFFRON/linux-saffron/NERD_tree_2
+	"	70	8
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Desktop/Laboratory/SAFFRON/linux-saffron/arch/c6x/include/asm/linkage.h
+	"	12	0
+
+> ~/Desktop/Laboratory/SAFFRON/linux-saffron/arch/x86/kernel/entry_64.S
+	"	302	39
+
+> ~/Desktop/Laboratory/.bashrc
+	"	1	0
+
+> ~/Desktop/Laboratory/SAFFRON/linux-saffron/arch/arc/kernel/entry.S
+	"	652	1
+
+> ~/Desktop/Laboratory/SAFFRON/linux-saffron/arch/arc/kernel/signal.c
+	"	352	0
+
+> ~/Desktop/Laboratory/SAFFRON/linux-saffron/arch/arm64/kernel/entry.S
+	"	595	1
+
+> ~/Desktop/Laboratory/SAFFRON/linux-saffron/arch/arm64/kernel/signal.c
+	"	409	0
+
+> ~/Desktop/Laboratory/SAFFRON/linux-saffron/arch/avr32/kernel/entry-avr32b.S
+	"	598	1
+
+> ~/Desktop/Laboratory/SAFFRON/linux-saffron/arch/avr32/kernel/signal.c
+	"	284	0
+
+> ~/Desktop/Laboratory/SAFFRON/linux-saffron/arch/blackfin/kernel/signal.c
+	"	293	0
+
+> ~/Desktop/Laboratory/SAFFRON/linux-saffron/arch/blackfin/mach-common/entry.S
+	"	663	1
+
+> ~/Desktop/Laboratory/SAFFRON/linux-saffron/arch/c6x/kernel/entry.S
+	"	282	1
+
+> ~/Desktop/Laboratory/SAFFRON/linux-saffron/arch/c6x/kernel/signal.c
+	"	328	0
+
+> ~/Desktop/Laboratory/SAFFRON/linux-saffron/arch/cris/arch-v10/kernel/entry.S
+	"	270	1
+
+> ~/Desktop/Laboratory/SAFFRON/linux-saffron/arch/cris/arch-v32/kernel/entry.S
+	"	313	1
+
+> ~/Desktop/Laboratory/SAFFRON/linux-saffron/arch/cris/kernel/ptrace.c
+	"	33	0
+
+> ~/Desktop/Laboratory/SAFFRON/linux-saffron/arch/frv/kernel/entry.S
+	"	1132	1
+
+> ~/Desktop/Laboratory/SAFFRON/linux-saffron/arch/frv/kernel/signal.c
+	"	454	0
+
+> ~/Desktop/Laboratory/SAFFRON/linux-saffron/arch/h8300/kernel/entry.S
+	"	299	1
+
+> ~/Desktop/Laboratory/SAFFRON/linux-saffron/arch/h8300/kernel/signal.c
+	"	435	0
+
+> ~/Desktop/Laboratory/SAFFRON/linux-saffron/arch/ia64/kernel/entry.S
+	"	1241	2
+
+> ~/Desktop/Laboratory/SAFFRON/linux-saffron/arch/ia64/kernel/process.c
+	"	163	0
+
+> ~/Desktop/Laboratory/SAFFRON/linux-saffron/arch/x86/kernel/signal.c
+	"	759	0
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/NERD_tree_2
+	"	19	0
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Desktop/Laboratory/zero-length-oriented-attack.c
+	"	16	2
+	^	21	2
+	.	21	0
+	+	23	0
+	+	5	0
+	+	4	0
+	+	21	0
+	+	21	0
+
+> ~/Desktop/setjmp_longjmp.c
+	"	36	28
+	^	36	29
+	.	36	28
+	+	36	28
+
+> ~/Desktop/オリジナル/test.c
+	"	4	14
+	^	4	15
+	.	4	14
+	+	6	1
+	+	4	13
+	+	5	10
+	+	4	14
+
+> ~/Desktop/オリジナル/.git/COMMIT_EDITMSG
+	"	1	10
+	^	1	11
+	.	2	0
+	+	1	6
+	+	2	0
+	+	2	0
+
+> ~/Desktop/オリジナル のコピー 2/js/main.js
+	"	1	0
+
+> ~/Desktop/オリジナル のコピー 2/index.html
+	"	1	0
+
+> ~/Desktop/オリジナル のコピー 2/index_02.html
+	"	3	0
+
+> /Volumes/CREATE_C/2015春スクール/回収用/20150606pm/コムラサキヒトシ/オリジナル のコピー 2/index.html
+	"	7	6
+
+> /Volumes/CREATE_C/2015春スクール/回収用/20150606pm/コムラサキヒトシ/オリジナル のコピー 2/js/main.js
+	"	1	0
+
+> ~/Desktop/コムラサキ/オリジナル のコピー 2/index.html
+	"	1	0
+
+> ~/Desktop/コムラサキ/オリジナル のコピー 2/js/main.js
+	"	1	0
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/arm-semi.c
+	"	363	12
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/audio/audio.h
+	"	163	0
+
+> ~/Desktop/Laboratory/SAFFRON/qemu-saffron/audio/audio_template.h
+	"	425	4
